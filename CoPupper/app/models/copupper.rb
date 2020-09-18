@@ -1,0 +1,2 @@
+class Copupper < ApplicationRecord
+end
