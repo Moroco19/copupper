@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+# Copupper.destroy_all
+
+tester = User.create!(username: 'test001', email: 'test001@test.com', password: 'password', first_name: 'Tester1', last_name: 'Tested1')
+
+puts "#{User.count} users created!"

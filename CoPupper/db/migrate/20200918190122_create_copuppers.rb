@@ -4,7 +4,7 @@ class CreateCopuppers < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :breed
       t.integer :age
-      t.integer :trainer_id
+      t.integer :user_id
       t.integer :office_id
       t.integer :department_id
 
