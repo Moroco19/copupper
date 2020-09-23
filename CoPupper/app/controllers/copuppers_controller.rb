@@ -12,8 +12,17 @@ class CopuppersController < ApiController
     end
 
     def create
-        copupper = Copupper.create!(copupper_params)
-        render json: { copupper: copupper }
+        copupper = Copupper.new(copupper_params)
+        copupper.user = current_user
+
+        if copupper.save
+            render json: {
+                message: 'ok',
+                copupper: copupper,
+            }
+        else
+            render json: {message: 'Could not create a new copupper'}
+        end
     end
 
     def update
