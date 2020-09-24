@@ -9,10 +9,7 @@ class UsersController < ApiController
     def profile
         user = User.find_by!(auth_token: request.headers[:token])
         user_copuppers = Copupper.where(user_id: user.id)
-        render json: { 
-            user: { username: user.username, email: user.email, first_name: user.first_name, last_name: user.last_name },
-            copuppers: user_copuppers,
-        }
+        render json: user.profile_info
     end
   
     private

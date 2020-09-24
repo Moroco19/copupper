@@ -27,5 +27,5 @@ offsf = Office.create!(name: 'San Francisco Embarcadero', street: '160 Spear St 
 offny = Office.create!(name: 'New York Empire State', street: '20 W 34th St #1200', city: 'New York', state: 'NY', zip: '10001')
 puts "#{Office.count} offices created!"
 
-doge = Copupper.create!(name: 'Doge', breed: 'Shiba Inu', age: 7, user_id: 1, office_id: 1, department_id: 1)
+doge = Copupper.create!(name: 'Doge', breed: 'Shiba Inu', age: 7, user_id: tester.id, office_id: offsf.id, department_id: depit.id)
 puts "#{Copupper.count} copuppers created!"

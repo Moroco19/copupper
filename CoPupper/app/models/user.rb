@@ -14,4 +14,8 @@ class User < ApplicationRecord
             user
         end
     end
+
+    def profile_info
+        {user: { username: self.username, email: self.email, first_name: self.first_name, last_name: self.last_name, copuppers: self.copuppers} }
+    end
 end

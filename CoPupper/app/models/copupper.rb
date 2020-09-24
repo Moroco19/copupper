@@ -1,5 +1,5 @@
 class Copupper < ApplicationRecord
     belongs_to :user
-    has_one :office
-    has_one :department
+    belongs_to :office
+    belongs_to :department
 end
