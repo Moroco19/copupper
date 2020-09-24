@@ -27,6 +27,6 @@ class SessionsController < ApiController
     end
   
     def logout
-        current_user.invalidate_token
+        current_user&.invalidate_token
     end
 end

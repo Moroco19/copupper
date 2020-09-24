@@ -2,7 +2,7 @@ import React, { useEffect, useState }  from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../modules/auth';
 
-const Nav = ({ navUser }) => {
+const Nav = ({ navUser, handleLogout }) => {
     useEffect(() => {
         fetch('/profile', {
             headers: {
@@ -25,7 +25,7 @@ const Nav = ({ navUser }) => {
                     <Link to="/add-copupper">Add a CoPupper!</Link>
                     <Link to="/copuppers">All CoPuppers</Link>
                     <Link to="/profile">Profile</Link>
-                    <Link to="/logout">Logout</Link>
+                    <Link to="/logout" onClick={() => handleLogout()}>Logout</Link>
                 </>
                 : <>
                     <Link to="/login">Login</Link>
