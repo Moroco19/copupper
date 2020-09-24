@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import Auth from '../../modules/auth';
 
 const Profile = () => {
@@ -26,9 +26,10 @@ const Profile = () => {
                     <ul>
                         {data.copuppers.map(copupper => (
                             <li key={copupper.id}>
-                                <h3>{copupper.name}</h3>
+                                <Link to={`/copuppers/${copupper.id}`}><h3>{copupper.name}</h3></Link>
                                 <p>{copupper.breed}</p>
                                 <p>{copupper.age}</p>
+                                <Link to={`/copuppers/${copupper.id}/edit`}><span>Update {copupper.name}'s Info</span></Link>
                             </li>
                         ))}
                     </ul>

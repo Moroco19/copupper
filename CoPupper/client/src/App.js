@@ -8,12 +8,15 @@ import LoginForm from './components/Users/LoginForm';
 import Profile from './components/Users/Profile';
 import Nav from "./components/Nav";
 import CoPupperAdd from './components/Copuppers/CopupperAdd';
+import CoPupperUpdate from './components/Copuppers/CopupperUpdate';
+import CoPupperProfile from './components/Copuppers/CopupperProfile';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       user: '',
+      selectedCopupper: '',
       auth: Auth.isUserAuthenticated(),
     }
   }
@@ -21,6 +24,12 @@ class App extends React.Component {
   navUser = (val) => {
     this.setState({
       user: val
+    })
+  }
+
+  updateSelectedCopupper = (val) => {
+    this.setState({
+      selectedCopupper: val,
     })
   }
 
@@ -54,9 +63,11 @@ class App extends React.Component {
             ? ''
             : <p>Log In <Link to="/login">Here</Link></p>}
         
+        <Route exact path="/copuppers/:id/edit" render={(match) => <CoPupperUpdate copupper={this.selectedCopupper} match={match} />} />
+        <Route exact path="/copuppers/:id" render={(match) => <CoPupperProfile match={match} />} />
         <Route exact path="/copuppers" component={CopupperList} />
         <Route exact path="/login" render={() => <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>} />
-        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/profile" render={() => <Profile updateSelectedCopupper={this.updateSelectedCopupper} />} />
         <Route exact path="/add-copupper" component={CoPupperAdd} />
         </div>
       </BrowserRouter>
