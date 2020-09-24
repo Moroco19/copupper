@@ -20,18 +20,10 @@ const Nav = ({ navUser, handleLogout }) => {
     return (
         <nav>
             <Link to="/">Home</Link>
-            {Auth.isUserAuthenticated()
-                ? <>
-                    <Link to="/add-copupper">Add a CoPupper!</Link>
-                    <Link to="/copuppers">All CoPuppers</Link>
-                    <Link to="/profile">Profile</Link>
-                    <Link to="/logout" onClick={() => handleLogout()}>Logout</Link>
-                </>
-                : <>
-                    <Link to="/login">Login</Link>
-                    <Link to="/register">Register</Link>
-                </>
-            }
+            <Link to="/add-copupper">Add a CoPupper!</Link>
+            <Link to="/copuppers">All CoPuppers</Link>
+            <Link to="/profile">Profile</Link>
+            <Link to="/logout" onClick={() => handleLogout()}>Logout</Link>
         </nav>
     )
 }
