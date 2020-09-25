@@ -36,7 +36,7 @@ const CoPupperProfile = ({ match }) => {
     return (
         <div>
             <h1>Hi from CoPupper {copupper.name}'s Profile</h1>
-            <img src={profAva ? profAva.url : ''} />
+            <img src={profAva ? profAva.url : "/no_avatar.png"} className="copupper-avatar" />
             <form onSubmit={submitAvatar}>
                 <input type="file" name="image" onChange={(evt) => setAvatar(evt.target.files[0])} />
                 <input type="submit" value="Upload Avatar" />

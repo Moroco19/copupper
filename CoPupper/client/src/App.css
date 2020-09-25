@@ -39,10 +39,19 @@ body {
 .right-aside {
   width: 70%;
   height: 100%;
-  background-image: url('./office_dogs.png');
+  background-image: url('/office_dogs.png');
   background-size: cover;
 }
 /* End Of Home Page Not Logged In */
+
+/* CoPupper Profile Page */
+.copupper-avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 200px;
+  border: black solid 1px;
+}
+/* End of CoPupper Profile Page */
 
 .App-header {
   background-color: #282c34;
