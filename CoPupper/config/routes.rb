@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :departments
 
   resources :copuppers
+  resources :images, only: [:create]
 end

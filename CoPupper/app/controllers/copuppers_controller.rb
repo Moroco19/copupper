@@ -8,7 +8,8 @@ class CopuppersController < ApiController
 
     def show
         copupper = Copupper.find(params[:id])
-        render json: { copupper: copupper }
+        copupper_avatar = Image.where(copupper_id: copupper.id, is_avatar: true)
+        render json: { copupper: copupper, avatar: copupper_avatar }
     end
 
     def create
