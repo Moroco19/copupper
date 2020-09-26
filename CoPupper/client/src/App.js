@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Link, Redirect, Route } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 // import Routes from './components/Routes';
 import Auth from './modules/auth';
 import {CopupperList} from './components/Copuppers/';
