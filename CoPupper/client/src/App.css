@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -5,7 +7,9 @@ body {
   max-height: 100vh;
   width: 2000px;
   height: 2000px;
-  background-color: grey;
+  background-color: #254E58;
+  color: #e4feec;
+  font-family: 'Fjalla One', sans-serif;
 }
 
 #root {
@@ -42,6 +46,22 @@ body {
   background-image: url('/office_dogs.png');
   background-size: cover;
 }
+
+.login-form, .register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input, .register-form input {
+  margin: 2px 0 15px 0;
+}
+
+.login-register-button {
+  border-radius: 20px;
+  padding: 7px 20px;
+  background-color: #112D32;
+  color: #e4feec;
+}
 /* End Of Home Page Not Logged In */
 
 /* CoPupper Profile Page */
@@ -52,18 +72,3 @@ body {
   border: black solid 1px;
 }
 /* End of CoPupper Profile Page */
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
