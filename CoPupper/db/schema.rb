@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 2020_09_25_055003) do
 
   create_table "images", force: :cascade do |t|
     t.string "url"
-    t.boolean "is_avatar"
-    t.integer "copupper_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_avatar"
+    t.integer "copupper_id"
   end
 
   create_table "offices", force: :cascade do |t|
@@ -67,13 +67,6 @@ ActiveRecord::Schema.define(version: 2020_09_25_055003) do
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.text "link"
-    t.text "caption"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
