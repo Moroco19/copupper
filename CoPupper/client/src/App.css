@@ -24,10 +24,12 @@ body {
 }
 
 ul {
-  padding-inline-start: 0;
-}
-li {
+  margin: 0;
+  padding: 0;
   list-style: none;
+}
+a {
+  color: inherit;
 }
 
 /* Home Page Not Logged In */
@@ -116,7 +118,6 @@ nav {
 .nav-a {
   height: 30px;
   text-decoration: none;
-  color: inherit;
   padding: 10px;
 }
 .sub-menu {
@@ -135,7 +136,6 @@ nav {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: inherit;
   width: 100px;
   height: 30px;
   padding: 10px 0;
@@ -164,15 +164,6 @@ nav {
   width: 100px;
 }
 /* End of Header Nav Bar */
-
-/* CoPupper Profile Page */
-.copupper-avatar {
-  height: 200px;
-  width: 200px;
-  border-radius: 200px;
-  border: black solid 1px;
-}
-/* End of CoPupper Profile Page */
 
 /* CoPupper Forms */
 .coppuper-add-container, .coppuper-edit-container {
@@ -203,7 +194,8 @@ nav {
   justify-content: center;
   align-items: center;
 }
-.copupper-form input {
+.copupper-form input, .copupper-form select {
+  width: 200px;
   margin: 2px 0 15px 0;
 }
 .update-page-ava {
@@ -212,6 +204,12 @@ nav {
 /* End CoPupper Forms */
 
 /* CoPupper Profile*/
+.copupper-avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 200px;
+  border: black solid 1px;
+}
 .copupper-profile-container{
   height: 100%;
   width: 100%;
