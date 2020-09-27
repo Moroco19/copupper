@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Auth from '../../modules/auth';
 
-const CoPupperAdd = () => {
+const CoPupperAdd = ({ allOffices, allDepartments }) => {
     const [name, setName] = useState('')
     const [breed, setBreed] = useState('')
     const [age, setAge] = useState('')
@@ -47,10 +47,18 @@ const CoPupperAdd = () => {
                     <input type="text" id="breed" name="breed" placeholder="CoPupper Breed" value={breed} onChange={(evt) => setBreed(evt.target.value)} />
                     <label for="age">Age</label>
                     <input type="integer" id="age" name="age" placeholder="1" value={age} onChange={(evt) => setAge(evt.target.value)}/>
-                    <label for="Office">Office</label>
-                    <input type="integer" id="office" name="office_id" placeholder="1" value={office_id} onChange={(evt) => setOffice(evt.target.value)}/>
+                    <label for="office">Office</label>
+                    <select id="office" name="office_id" value={office_id} onChange={(evt) => setOffice(evt.target.value)}>
+                        {allOffices 
+                            ? allOffices.map(office => <option key={office.id} value={office.id}>{office.name}</option>) 
+                            : ''}
+                    </select>
                     <label for="department">Department</label>
-                    <input type="integer" id="department" name="department_id" placeholder="1" value={department_id} onChange={(evt) => setDepartment(evt.target.value)}/>
+                    <select id="department" name="department_id" value={department_id} onChange={(evt) => setDepartment(evt.target.value)}>
+                        {allDepartments 
+                            ? allDepartments.map(department => <option key={department.id} value={department.id}>{department.name}</option>) 
+                            : ''}
+                    </select>
                     <input type="submit" value="Submit New CoPupper!" />
                 </form>
             </section>

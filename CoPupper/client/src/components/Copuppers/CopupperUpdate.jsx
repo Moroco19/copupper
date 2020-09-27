@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Auth from '../../modules/auth';
 
-const CoPupperUpdate = ({ match }) => {
+const CoPupperUpdate = ({ match, allOffices, allDepartments }) => {
     const [name, setName] = useState('')
     const [breed, setBreed] = useState('')
     const [age, setAge] = useState('')
@@ -32,7 +32,7 @@ const CoPupperUpdate = ({ match }) => {
             setDepartment(res.copupper.department_id)
             setProfAva(res.avatar[0])
         })
-    }, []);
+    }, [match.match.params.id]);
 
     const handleCopupperSubmit = (evt) => {
         evt.preventDefault();
@@ -62,7 +62,7 @@ const CoPupperUpdate = ({ match }) => {
         <main className="coppuper-edit-container">
             {copupper 
                 ? <>
-                    <img src={profAva ? profAva.url : "/no_avatar.png"} className="copupper-avatar update-page-ava" />
+                    <img src={profAva ? profAva.url : "/no_avatar.png"} className="copupper-avatar update-page-ava" alt="copupper-avatar" />
                     <section className="copupper-form-container">
                         <i class="fas fa-dog"></i><h1>Edit Your CoPupper!</h1>
                         <form onSubmit={handleCopupperSubmit} className="copupper-form">
@@ -73,9 +73,17 @@ const CoPupperUpdate = ({ match }) => {
                             <label for="age">Age</label>
                             <input type="integer" id="age" name="age" value={age} onChange={(evt) => setAge(evt.target.value)}/>
                             <label for="office">Office</label>
-                            <input type="integer" id="office" name="office_id" value={office_id} onChange={(evt) => setOffice(evt.target.value)}/>
+                            <select id="office" name="office_id" value={office_id} onChange={(evt) => setOffice(evt.target.value)}>
+                                {allOffices 
+                                    ? allOffices.map(office => <option key={office.id} value={office.id}>{office.name}</option>) 
+                                    : ''}
+                            </select>
                             <label for="department">Department</label>
-                            <input type="integer" id="department" name="department_id" value={department_id} onChange={(evt) => setDepartment(evt.target.value)}/>
+                            <select id="department" name="department_id" value={department_id} onChange={(evt) => setDepartment(evt.target.value)}>
+                                {allDepartments 
+                                    ? allDepartments.map(department => <option key={department.id} value={department.id}>{department.name}</option>) 
+                                    : ''}
+                            </select>
                             <input type="submit" value="Submit Updated CoPupper!" />
                         </form>
                     </section>

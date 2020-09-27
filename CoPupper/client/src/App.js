@@ -19,7 +19,38 @@ class App extends React.Component {
       user: '',
       selectedCopupper: '',
       auth: Auth.isUserAuthenticated(),
+      allOffices: [],
+      allDepartments: [],
     }
+  }
+
+  componentDidMount() {
+    fetch(`/offices/`, {
+      headers: {
+          token: Auth.getToken(),
+          'Authorization': `Token ${Auth.getToken()}`
+      }
+    })
+    .then(res => res.json())
+    .then(res => {
+        console.log('Offices:', res.offices)
+        this.setState({
+          allOffices: res.offices,
+        })
+    })
+    fetch(`/departments/`, {
+      headers: {
+          token: Auth.getToken(),
+          'Authorization': `Token ${Auth.getToken()}`
+      }
+    })
+    .then(res => res.json())
+    .then(res => {
+      console.log('Departments:', res.departments)
+      this.setState({
+        allDepartments: res.departments,
+      })
+    })
   }
 
   navUser = (val) => {
@@ -95,13 +126,13 @@ class App extends React.Component {
             : <Redirect to="/login" />
           }
         
-          <Route exact path="/copuppers/:id/edit" render={(match) => <CoPupperUpdate copupper={this.selectedCopupper} match={match} />} />
+          <Route exact path="/copuppers/:id/edit" render={(match) => <CoPupperUpdate copupper={this.selectedCopupper} match={match} allOffices={this.state.allOffices} allDepartments={this.state.allDepartments} />} />
           <Route exact path="/copuppers/:id" render={(match) => <CoPupperProfile match={match} />} />
           <Route exact path="/copuppers" component={CopupperList} />
           <Route exact path="/login" render={() => <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>} />
           <Route exact path="/register" render={() => <RegisterForm handleRegisterSubmit={this.handleRegisterSubmit}/>} />
           <Route exact path="/profile" render={() => <Profile updateSelectedCopupper={this.updateSelectedCopupper} />} />
-          <Route exact path="/add-copupper" component={CoPupperAdd} />
+          <Route exact path="/add-copupper" render={() => <CoPupperAdd allOffices={this.state.allOffices} allDepartments={this.state.allDepartments} />} />
           <Route exact path="/logout"><Redirect to="/login"/></Route>
         </div>
       </BrowserRouter>
