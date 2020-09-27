@@ -10,6 +10,7 @@ const CoPupperUpdate = ({ match }) => {
     const [department_id, setDepartment] = useState('')
     const [redirectAfterSubmit, setRedirectAfterSubmit] = useState(false)
     const [copupper, setCopupper] = useState('')
+    const [profAva, setProfAva] = useState('')
 
     useEffect(() => {
         console.log(match.match.params.id)
@@ -29,6 +30,7 @@ const CoPupperUpdate = ({ match }) => {
             setAge(res.copupper.age)
             setOffice(res.copupper.office_id)
             setDepartment(res.copupper.department_id)
+            setProfAva(res.avatar[0])
         })
     }, []);
 
@@ -57,23 +59,32 @@ const CoPupperUpdate = ({ match }) => {
     }
 
     return (
-        <>
+        <main className="coppuper-edit-container">
             {copupper 
                 ? <>
-                    <form onSubmit={handleCopupperSubmit}>
-                        <input type="text" name="name" value={name} onChange={(evt) => setName(evt.target.value)} />
-                        <input type="text" name="breed" value={breed} onChange={(evt) => setBreed(evt.target.value)} />
-                        <input type="integer" name="age" value={age} onChange={(evt) => setAge(evt.target.value)}/>
-                        <input type="integer" name="office_id" value={office_id} onChange={(evt) => setOffice(evt.target.value)}/>
-                        <input type="integer" name="department_id" value={department_id} onChange={(evt) => setDepartment(evt.target.value)}/>
-                        <input type="submit" value="Submit Updated CoPupper!" />
-                    </form>
+                    <img src={profAva ? profAva.url : "/no_avatar.png"} className="copupper-avatar update-page-ava" />
+                    <section className="copupper-form-container">
+                        <i class="fas fa-dog"></i><h1>Edit Your CoPupper!</h1>
+                        <form onSubmit={handleCopupperSubmit} className="copupper-form">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" value={name} onChange={(evt) => setName(evt.target.value)} />
+                            <label for="breed">Breed</label>
+                            <input type="text" id="breed" name="breed" value={breed} onChange={(evt) => setBreed(evt.target.value)} />
+                            <label for="age">Age</label>
+                            <input type="integer" id="age" name="age" value={age} onChange={(evt) => setAge(evt.target.value)}/>
+                            <label for="office">Office</label>
+                            <input type="integer" id="office" name="office_id" value={office_id} onChange={(evt) => setOffice(evt.target.value)}/>
+                            <label for="department">Department</label>
+                            <input type="integer" id="department" name="department_id" value={department_id} onChange={(evt) => setDepartment(evt.target.value)}/>
+                            <input type="submit" value="Submit Updated CoPupper!" />
+                        </form>
+                    </section>
                   </>
-                : ''
+                : <i class="fas fa-dog">Loading...</i>
             }
 
             {redirectAfterSubmit && <Redirect push to="/profile" />}
-        </>
+        </main>
     )
 }
 

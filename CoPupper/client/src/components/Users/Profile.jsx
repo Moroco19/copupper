@@ -34,7 +34,7 @@ const Profile = () => {
                         ))}
                     </ul>
                   </>
-                : <p>Loading...</p>
+                : <i class="fas fa-dog">Loading...</i>
             }
             {!Auth.isUserAuthenticated() && <Redirect to="/login" />}
         </div>
