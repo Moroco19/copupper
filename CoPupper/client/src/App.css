@@ -210,3 +210,49 @@ nav {
   margin-bottom: 20px;
 }
 /* End CoPupper Forms */
+
+/* CoPupper Profile*/
+.copupper-profile-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.copupper-profile-aside {
+  height: 100%;
+  width: 30%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.copupper-profile-aside-container {
+  background-color: #4F4A41;
+  height: 100%;
+  border-radius: 5px;
+}
+.copupper-profile-aside-container > form {
+  margin: 20px 0;
+}
+.profile-page-ava {
+  margin-top: 20px;
+}
+.copupper-profile-section {
+  height: 100%;
+  width: 70%;
+  padding: 20px;
+}
+.copupper-profile-summary {
+  background-color: #4F4A41;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.copupper-profile-article {
+  background-color: #4F4A41;
+  width: 100%;
+  border-radius: 5px;
+}
+/* End of CoPupper Profile*/
