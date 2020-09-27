@@ -5,6 +5,8 @@ const CoPupperProfile = ({ match }) => {
     const [copupper, setCopupper] = useState('')
     const [profAva, setProfAva] = useState('')
     const [avatar, setAvatar] = useState('')
+    const [office, setOffice] = useState('')
+    const [department, setDepartment] = useState('')
 
     useEffect(() => {
         const id = match.match.params.id
@@ -19,6 +21,8 @@ const CoPupperProfile = ({ match }) => {
             console.log(res.avatar[0])
             setCopupper(res.copupper)
             setProfAva(res.avatar[0])
+            setOffice(res.office[0])
+            setDepartment(res.department[0])
         })
     }, []);
 
@@ -49,8 +53,8 @@ const CoPupperProfile = ({ match }) => {
             <section className="copupper-profile-section">
                 <summary className="copupper-profile-summary">
                     <h3>Summary:</h3>
-                    <p>You can find me in the {copupper.office_id} office!</p>
-                    <p>I usually hang out with my friends in the {copupper.department_id} department!</p>
+                    <p>You can find me in the {office.name} office!</p>
+                    <p>I usually hang out with my friends in the {department.name} department!</p>
                 </summary>
                 <article className="copupper-profile-article">
                     <p>I am {copupper.age} years old!  My trainer says that's {copupper.age * 7} in pupper years.</p>

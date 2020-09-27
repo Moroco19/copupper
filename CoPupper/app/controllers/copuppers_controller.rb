@@ -9,7 +9,9 @@ class CopuppersController < ApiController
     def show
         copupper = Copupper.find(params[:id])
         copupper_avatar = Image.where(copupper_id: copupper.id, is_avatar: true)
-        render json: { copupper: copupper, avatar: copupper_avatar }
+        copupper_office = Office.where(id: copupper.office_id)
+        copupper_department = Department.where(id: copupper.department_id)
+        render json: { copupper: copupper, avatar: copupper_avatar, office: copupper_office, department: copupper_department }
     end
 
     def create

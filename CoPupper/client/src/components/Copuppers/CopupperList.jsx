@@ -24,11 +24,11 @@ const CopupperList = () => {
     }, []);
 
     return (
-        <div>
+        <main className="copupper-list">
             {data 
                 ? data.map(copupper => <Copupper key={copupper.id} {...copupper}  />) 
                 : <p>Loading...</p>}
-        </div>
+        </main>
     )
 }
 

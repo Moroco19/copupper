@@ -256,3 +256,33 @@ nav {
   border-radius: 5px;
 }
 /* End of CoPupper Profile*/
+
+/* CoPupper List */
+.copupper-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.listed-copuppers {
+  color: #e4feec;
+  text-decoration: none;
+  margin: 5px;
+
+}
+.copupper {
+  height: 50px;
+  background-color: #4F4A41;
+  border-radius: 5px;
+  padding: 2px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.copupper > h3, .copupper > p {
+  margin: 0;
+}
+/* End of CoPupper List */
