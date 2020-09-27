@@ -21,18 +21,18 @@ const Profile = () => {
         <div className="profile">
             {data
                 ? <>
-                    <h2>Welcome to your profile, {data.username}!</h2>
+                    <h2>Welcome to your profile, {data.first_name}!</h2>
                     <h3>Here are your copuppers</h3>
-                    <ul>
-                        {data.copuppers.map(copupper => (
-                            <li key={copupper.id}>
-                                <Link to={`/copuppers/${copupper.id}`}><h3>{copupper.name}</h3></Link>
-                                <p>{copupper.breed}</p>
-                                <p>{copupper.age}</p>
-                                <Link to={`/copuppers/${copupper.id}/edit`}><span>Update {copupper.name}'s Info</span></Link>
-                            </li>
-                        ))}
-                    </ul>
+                    <section className="profile-copupper-container">
+                    {data.copuppers.map(copupper => (
+                        <div key={copupper.id} className="user-copupper-list">
+                            <Link to={`/copuppers/${copupper.id}`}><h3>{copupper.name}</h3></Link>
+                            <p>{copupper.breed}</p>
+                            <p>{copupper.age}</p>
+                            <Link to={`/copuppers/${copupper.id}/edit`}><span>Update {copupper.name}'s Info</span></Link>
+                        </div>
+                    ))}
+                    </section>
                   </>
                 : <i class="fas fa-dog">Loading...</i>
             }
