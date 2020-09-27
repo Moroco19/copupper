@@ -288,13 +288,12 @@ nav {
 .profile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 100%;
   width: 100%;
 }
 .profile-copupper-container {
-  background-color: #112D32;
   height: 50%;
   width: 50%;
   display: flex;
