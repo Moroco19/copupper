@@ -22,6 +22,8 @@ const Profile = () => {
             {data
                 ? <>
                     <h2>Welcome to your profile, {data.first_name}!</h2>
+                    {data.copuppers.length > 0 ?
+                    <>
                     <h3>Here are your copuppers</h3>
                     <section className="profile-copupper-container">
                     {data.copuppers.map(copupper => (
@@ -32,7 +34,8 @@ const Profile = () => {
                             <Link to={`/copuppers/${copupper.id}/edit`}><span>Update {copupper.name}'s Info</span></Link>
                         </div>
                     ))}
-                    </section>
+                    </section></>
+                    : <Link to="/add-copupper" className="no-copuppers-add">Add a CoPupper!</Link>}
                   </>
                 : <i className="fas fa-dog">Loading...</i>
             }
