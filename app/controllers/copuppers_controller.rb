@@ -12,7 +12,8 @@ class CopuppersController < ApiController
         copupper_office = Office.where(id: copupper.office_id)
         copupper_department = Department.where(id: copupper.department_id)
         copupper_gallery = Image.where(copupper_id: copupper.id, is_avatar: false)
-        render json: { copupper: copupper, avatar: copupper_avatar, office: copupper_office, department: copupper_department, gallery: copupper_gallery }
+        copupper_trainer = User.where(id: copupper.user_id)
+        render json: { copupper: copupper, avatar: copupper_avatar, office: copupper_office, department: copupper_department, gallery: copupper_gallery, trainer: copupper_trainer }
     end
 
     def create

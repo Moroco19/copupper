@@ -9,6 +9,7 @@ const CoPupperProfile = ({ match }) => {
     const [department, setDepartment] = useState('')
     const [gallery, setGallery] = useState('')
     const [galleryImage, setGalleryImage] = useState('')
+    const [trainer, setTrainer] = useState('')
 
     useEffect(() => {
         const id = match.match.params.id
@@ -26,6 +27,7 @@ const CoPupperProfile = ({ match }) => {
             setOffice(res.office[0])
             setDepartment(res.department[0])
             setGallery(res.gallery)
+            setTrainer(res.trainer[0])
         })
     }, [match.match.params.id]);
 
@@ -72,6 +74,7 @@ const CoPupperProfile = ({ match }) => {
                     <h3>Summary:</h3>
                     <p>You can find me in the {office.name} office!</p>
                     <p>I usually hang out with my friends in the {department.name} department!</p>
+                    <p>Next time you are over this way you should stop by and say hello to me and my trainer, {trainer.first_name}.</p>
                 </summary>
                 <article className="copupper-profile-article">
                     <h3>CoPupper Gallery</h3>
