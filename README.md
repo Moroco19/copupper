@@ -1,14 +1,13 @@
 # CoPupper
 
 ## The App
-
 Ever wanted a way to find out what dogs might work at the same office you do, well now you can with CoPupper! An app thats adjacent to your company's HR system, CoPupper will let you add your own pupper so your fellow coworkers will know where to stop by to see the goodest of puppers!
 
 ### Wireframes!
-...
+![Wirefame](copupper-wireframe-plans.png)
 
 ### DB
-...
+![DB_Schema](copupper-db-plans.png)
 
 ### User Stories
  1. As a user, I want to be able to create a profile for my pupper to show I bring them into the office.
@@ -17,12 +16,10 @@ Ever wanted a way to find out what dogs might work at the same office you do, we
  4. As a user, I want to be able to add a profile image for my copupper.
 
 ### Technologies
-
 - Reactjs
 - Ruby 2.6.6
 - Rails 6
 - Cloudinary for Image Hosting, with the cloudinary Gem added to gemfile
-
 
 ### Deployment to Heroku
  1. Create heroku app
