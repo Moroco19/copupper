@@ -51,6 +51,7 @@ const CoPupperProfile = ({ match }) => {
                     </form>
                     <h3>Hi! I am {copupper.name}!</h3>
                     <p>My trainer tells me I am a {copupper.breed}, isn't that neat?</p>
+                    <p>I am {copupper.age} years old!  My trainer says that's {copupper.age * 7} in pupper years.</p>
                 </div>
             </aside>
             <section className="copupper-profile-section">
@@ -60,8 +61,7 @@ const CoPupperProfile = ({ match }) => {
                     <p>I usually hang out with my friends in the {department.name} department!</p>
                 </summary>
                 <article className="copupper-profile-article">
-                    <p>I am {copupper.age} years old!  My trainer says that's {copupper.age * 7} in pupper years.</p>
-                    <p>Additional CoPupper detail features (ex. friendly with others, walk times, preferred diet, ok for treats...etc)</p>
+                    <h3>CoPupper Gallery</h3>
                     {gallery 
                         ? gallery.map(image => <img key={image.id} className="copupper-gallery" src={image.url} alt="copupper gallery"/>)
                         : 'Non-avatar images will show here!'}

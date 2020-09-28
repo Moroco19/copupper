@@ -64,7 +64,7 @@ const CoPupperUpdate = ({ match, allOffices, allDepartments }) => {
                 ? <>
                     <img src={profAva ? profAva.url : "/no_avatar.png"} className="copupper-avatar update-page-ava" alt="copupper-avatar" />
                     <section className="copupper-form-container">
-                        <i class="fas fa-dog"></i><h1>Edit Your CoPupper!</h1>
+                        <i className="fas fa-dog"></i><h1>Edit Your CoPupper!</h1>
                         <form onSubmit={handleCopupperSubmit} className="copupper-form">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" value={name} onChange={(evt) => setName(evt.target.value)} />
@@ -88,7 +88,7 @@ const CoPupperUpdate = ({ match, allOffices, allDepartments }) => {
                         </form>
                     </section>
                   </>
-                : <i class="fas fa-dog">Loading...</i>
+                : <i className="fas fa-dog">Loading...</i>
             }
 
             {redirectAfterSubmit && <Redirect push to="/profile" />}

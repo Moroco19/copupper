@@ -39,7 +39,7 @@ const CoPupperAdd = ({ allOffices, allDepartments }) => {
     return (
         <main className="coppuper-add-container">
             <section className="copupper-form-container">
-                <i class="fas fa-dog"></i><h1>Add a New CoPupper!</h1>
+                <i className="fas fa-dog"></i><h1>Add a New CoPupper!</h1>
                 <form onSubmit={handleCopupperSubmit} className="copupper-form">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="CoPupper Name" value={name} onChange={(evt) => setName(evt.target.value)} />
