@@ -8,6 +8,7 @@ const CoPupperProfile = ({ match }) => {
     const [office, setOffice] = useState('')
     const [department, setDepartment] = useState('')
     const [gallery, setGallery] = useState('')
+    const [galleryImage, setGalleryImage] = useState('')
 
     useEffect(() => {
         const id = match.match.params.id
@@ -40,6 +41,18 @@ const CoPupperProfile = ({ match }) => {
         })
     }
 
+    const submitGalleryImage = (evt) => {
+        evt.preventDefault();
+        const form = new FormData()
+        form.append("image", galleryImage)
+        form.append("copupper_id", copupper.id)
+        form.append("is_avatar", false)
+        fetch(`/images`, {
+            method: 'POST',
+            body: form
+        })
+    }
+
     return (
         <main className="copupper-profile-container">
             <aside className="copupper-profile-aside">
@@ -62,6 +75,11 @@ const CoPupperProfile = ({ match }) => {
                 </summary>
                 <article className="copupper-profile-article">
                     <h3>CoPupper Gallery</h3>
+                    <p>Add new gallery image!</p>
+                    <form onSubmit={submitGalleryImage}>
+                        <input type="file" name="image" onChange={(evt) => setGalleryImage(evt.target.files[0])} />
+                        <input type="submit" value="Upload Image" />
+                    </form>
                     {gallery 
                         ? gallery.map(image => <img key={image.id} className="copupper-gallery" src={image.url} alt="copupper gallery"/>)
                         : 'Non-avatar images will show here!'}
