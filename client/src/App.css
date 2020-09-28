@@ -247,6 +247,7 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 0 0 10px 0;
 }
 .copupper-profile-article {
   background-color: #4F4A41;
@@ -254,11 +255,19 @@ nav {
   border-radius: 5px;
 }
 .copupper-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.copupper-gallery-image {
   height: 200px;
   width: 200px;
   border-radius: 5px;
   border: black solid 1px;
-  margin: 2px;
+  margin: 2px 5px;
+  margin-bottom: 25px;
 }
 /* End of CoPupper Profile*/
 

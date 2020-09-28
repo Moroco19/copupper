@@ -93,9 +93,11 @@ const CoPupperProfile = ({ match, user }) => {
                             </form>
                         </>
                         : ''}
+                    <section className="copupper-gallery">
                     {gallery 
-                        ? gallery.map(image => <img key={image.id} className="copupper-gallery" src={image.url} alt="copupper gallery"/>)
+                        ? gallery.map(image => <img key={image.id} className="copupper-gallery-image" src={image.url} alt="copupper gallery"/>)
                         : 'Non-avatar images will show here!'}
+                    </section>
                 </article>
             </section>
             
