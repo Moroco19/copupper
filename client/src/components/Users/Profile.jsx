@@ -34,7 +34,7 @@ const Profile = () => {
                     ))}
                     </section>
                   </>
-                : <i class="fas fa-dog">Loading...</i>
+                : <i className="fas fa-dog">Loading...</i>
             }
             {!Auth.isUserAuthenticated() && <Redirect to="/login" />}
         </div>

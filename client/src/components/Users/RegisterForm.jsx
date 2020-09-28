@@ -12,7 +12,7 @@ const RegisterForm = ({ handleRegisterSubmit }) => {
     return (
         <div className="not-logged-in">
             <aside className="left-aside">
-                <img src="/copuppers-logo-light-text.png" />
+                <img src="/copuppers-logo-light-text.png" alt="copupper logo" />
                 <form onSubmit={(evt) => handleRegisterSubmit(evt, { username, password, email, first_name, last_name })} className="register-form">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" placeholder="Username" value={username} onChange={(evt) => setUsername(evt.target.value)} />

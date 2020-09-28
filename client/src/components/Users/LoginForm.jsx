@@ -9,7 +9,7 @@ const LoginForm = ({ handleLoginSubmit }) => {
     return (
         <div className="not-logged-in">
             <aside className="left-aside">
-                <img src="/copuppers-logo-light-text.png" />
+                <img src="/copuppers-logo-light-text.png" alt="copupper logo"/>
                 <form onSubmit={(evt) => handleLoginSubmit(evt, { username, password })} className="login-form">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" placeholder="Username" value={username} onChange={(evt) => setUsername(evt.target.value)} />
