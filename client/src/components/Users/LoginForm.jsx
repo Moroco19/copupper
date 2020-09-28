@@ -18,7 +18,7 @@ const LoginForm = ({ handleLoginSubmit }) => {
                     <input type="submit" value="Log In" className="login-register-button"/>
                     {Auth.isUserAuthenticated() && <Redirect oush to='/profile' />}
                 </form>
-                <p>Note a member yet? Register <Link to="/register">here</Link></p>
+                <p>Not a member yet? Register <Link to="/register">here</Link></p>
             </aside>
             <aside className="right-aside">
             </aside>
