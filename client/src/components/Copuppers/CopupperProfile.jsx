@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Auth from '../../modules/auth';
 
-const CoPupperProfile = ({ match }) => {
+const CoPupperProfile = ({ match, user }) => {
     const [copupper, setCopupper] = useState('')
     const [profAva, setProfAva] = useState('')
     const [avatar, setAvatar] = useState('')
@@ -21,7 +21,7 @@ const CoPupperProfile = ({ match }) => {
         })
         .then(res => res.json())
         .then(res => {
-            console.log(res)
+            console.log(user)
             setCopupper(res.copupper)
             setProfAva(res.avatar[0])
             setOffice(res.office[0])
@@ -60,10 +60,15 @@ const CoPupperProfile = ({ match }) => {
             <aside className="copupper-profile-aside">
                 <div className="copupper-profile-aside-container">
                     <img src={profAva ? profAva.url : "/no_avatar.png"} className="copupper-avatar profile-page-ava" alt="copupper avatar" />
-                    <form onSubmit={submitAvatar}>
-                        <input type="file" name="image" onChange={(evt) => setAvatar(evt.target.files[0])} />
-                        <input type="submit" value="Upload Avatar" />
-                    </form>
+                    {trainer.username === user.username
+                        ? 
+                        <>
+                            <form onSubmit={submitAvatar}>
+                                <input type="file" name="image" onChange={(evt) => setAvatar(evt.target.files[0])} />
+                                <input type="submit" value="Upload Avatar" />
+                            </form>
+                        </>
+                        : ''}
                     <h3>Hi! I am {copupper.name}!</h3>
                     <p>My trainer tells me I am a {copupper.breed}, isn't that neat?</p>
                     <p>I am {copupper.age} years old!  My trainer says that's {copupper.age * 7} in pupper years.</p>
@@ -78,11 +83,16 @@ const CoPupperProfile = ({ match }) => {
                 </summary>
                 <article className="copupper-profile-article">
                     <h3>CoPupper Gallery</h3>
-                    <p>Add new gallery image!</p>
-                    <form onSubmit={submitGalleryImage}>
-                        <input type="file" name="image" onChange={(evt) => setGalleryImage(evt.target.files[0])} />
-                        <input type="submit" value="Upload Image" />
-                    </form>
+                    {trainer.username === user.username
+                        ? 
+                        <>
+                            <p>Add new gallery image!</p>
+                            <form onSubmit={submitGalleryImage}>
+                                <input type="file" name="image" onChange={(evt) => setGalleryImage(evt.target.files[0])} />
+                                <input type="submit" value="Upload Image" />
+                            </form>
+                        </>
+                        : ''}
                     {gallery 
                         ? gallery.map(image => <img key={image.id} className="copupper-gallery" src={image.url} alt="copupper gallery"/>)
                         : 'Non-avatar images will show here!'}

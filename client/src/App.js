@@ -127,7 +127,7 @@ class App extends React.Component {
           }
         
           <Route exact path="/copuppers/:id/edit" render={(match) => <CoPupperUpdate copupper={this.selectedCopupper} match={match} allOffices={this.state.allOffices} allDepartments={this.state.allDepartments} />} />
-          <Route exact path="/copuppers/:id" render={(match) => <CoPupperProfile match={match} />} />
+          <Route exact path="/copuppers/:id" render={(match) => <CoPupperProfile match={match} user={this.state.user} />} />
           <Route exact path="/copuppers" component={CopupperList} />
           <Route exact path="/login" render={() => <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>} />
           <Route exact path="/register" render={() => <RegisterForm handleRegisterSubmit={this.handleRegisterSubmit}/>} />
